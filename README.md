@@ -41,7 +41,7 @@ Below are the endpoints in this FLASK application:
  }
  ```
 
-3. get_history:
+2. get_history:
    <br/>METHOD TYPE : GET
    <br/>Request information:
       <br/>url : http://localhost:5000/get_history
@@ -72,7 +72,7 @@ Below are the endpoints in this FLASK application:
 ]
 ```
 
-5. login:
+3. login:
    <br/>METHOD TYPE : POST
    <br/>Request information:
       <br/>url : http://localhost:5000/login
@@ -91,7 +91,7 @@ Below are the endpoints in this FLASK application:
 }
 ```
 
-6. register_user:
+4. register_user:
    <br/>METHOD TYPE : POST
    <br/>Request information:
       <br/>url : http://localhost:5000/register_user
