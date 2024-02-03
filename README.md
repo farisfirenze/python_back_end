@@ -6,7 +6,7 @@ Below are the endpoints in this FLASK application:
    METHOD TYPE : POST
    Request information:
       url : http://localhost:5000/get_predictions
-      body format :
+      <br/>body format :
    ```
    {
      "rows" : [
