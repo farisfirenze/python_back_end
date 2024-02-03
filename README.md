@@ -7,7 +7,8 @@ Below are the endpoints in this FLASK application:
    Request information:
       url : http://localhost:5000/get_predictions
       body format :
-   ```{
+   ```
+   {
         "rows" : [
           "Sanofi",
           "Phase 1",
@@ -16,7 +17,8 @@ Below are the endpoints in this FLASK application:
           "100",
           "Leukemia"
         ]
-       }```
+       }
+   ```
   Response information:
     response format: 
     ```{
