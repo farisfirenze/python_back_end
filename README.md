@@ -6,7 +6,8 @@ Below are the endpoints in this FLASK application:
    METHOD TYPE : POST
    Request information:
       url : http://localhost:5000/get_predictions
-      body format : {
+      body format :
+   ```{
         "rows" : [
           "Sanofi",
           "Phase 1",
@@ -15,9 +16,10 @@ Below are the endpoints in this FLASK application:
           "100",
           "Leukemia"
         ]
-       }
+       }```
   Response information:
-    response format: {
+    response format: 
+    ```{
       "predictions_combined": {
         "Failed": 0.88,
         "Success": 0.12
@@ -33,16 +35,16 @@ Below are the endpoints in this FLASK application:
         "Unknown status": 0.01,
         "Withdrawn": 0.76
       }
-    }
+    }```
 
-2. get_history:
+3. get_history:
    METHOD TYPE : GET
    Request information:
       url : http://localhost:5000/get_history
       body format : none
   Response information:
     response format: [
-        {
+        ```{
           "condition": "Leukemia",
           "datetime": 1705968000000,
           "enrollment": 100,
@@ -61,30 +63,34 @@ Below are the endpoints in this FLASK application:
      ....
      .....
      }
-   ]
+   ]```
 
-3. login:
+4. login:
    METHOD TYPE : POST
    Request information:
       url : http://localhost:5000/login
-      body format : {
+      body format :
+         ```{
          "username" : "faris123",
          "password": "faris@123"
-        }
+        }```
   Response information:
-    response format: {
+    response format:
+      ```{
         "authentication": true
-      }
+      }```
 
-4. register_user:
+6. register_user:
    METHOD TYPE : POST
    Request information:
       url : http://localhost:5000/register_user
-      body format : {
+      body format :
+      ```{
          "username" : "faris123",
          "password": "faris@123"
-        }
+        }```
   Response information:
-    response format: {
+    response format: 
+    ```{
           "message": "User registered successfully"
-        }
+        }```
