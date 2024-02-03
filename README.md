@@ -9,19 +9,20 @@ Below are the endpoints in this FLASK application:
       body format :
    ```
    {
-        "rows" : [
-          "Sanofi",
-          "Phase 1",
-          "2024",
-          "3",
-          "100",
-          "Leukemia"
-        ]
-       }
+     "rows" : [
+       "Sanofi",
+       "Phase 1",
+       "2024",
+       "3",
+       "100",
+       "Leukemia"
+     ]
+    }
    ```
   Response information:
     response format: 
-    ```{
+    ```
+    {
       "predictions_combined": {
         "Failed": 0.88,
         "Success": 0.12
@@ -37,7 +38,8 @@ Below are the endpoints in this FLASK application:
         "Unknown status": 0.01,
         "Withdrawn": 0.76
       }
-    }```
+    }
+    ```
 
 3. get_history:
    METHOD TYPE : GET
@@ -46,7 +48,8 @@ Below are the endpoints in this FLASK application:
       body format : none
   Response information:
     response format: [
-        ```{
+   ```
+   {
           "condition": "Leukemia",
           "datetime": 1705968000000,
           "enrollment": 100,
@@ -65,34 +68,43 @@ Below are the endpoints in this FLASK application:
      ....
      .....
      }
-   ]```
+   ]
+   ```
 
-4. login:
+5. login:
    METHOD TYPE : POST
    Request information:
       url : http://localhost:5000/login
       body format :
-         ```{
-         "username" : "faris123",
-         "password": "faris@123"
-        }```
+   ```
+   {
+      "username" : "faris123",
+      "password": "faris@123"
+   }
+   ```
   Response information:
     response format:
-      ```{
+   ```
+   {
         "authentication": true
-      }```
+   }
+   ```
 
 6. register_user:
    METHOD TYPE : POST
    Request information:
       url : http://localhost:5000/register_user
       body format :
-      ```{
+      ```
+      {
          "username" : "faris123",
          "password": "faris@123"
-        }```
+      }
+      ```
   Response information:
     response format: 
-    ```{
-          "message": "User registered successfully"
-        }```
+    ```
+    {
+       "message": "User registered successfully"
+     }
+      ```
