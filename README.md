@@ -109,3 +109,30 @@ Below are the endpoints in this FLASK application:
  "message": "User registered successfully"
 }
 ```
+
+4. get_graph_data:
+   <br/>METHOD TYPE : GET
+   <br/>Request information:
+      <br/>url : http://localhost:5000/get_graph_data
+      <br/>body format : none
+  <br/>Response information:
+    <br/>response format: 
+```
+{
+  "line_graph": {
+    "Mon": 3,
+    "Tue": 4,
+    "Wed": 16,
+    "Thu": 4,
+    "Fri": 5,
+    "Sat": 9,
+    "Sun": 4
+  },
+  "bar_graph": {
+    "Withdrawn": 45,
+    "Suspended": 12,
+    "Completed": 2,
+    "Enrolling by invitation": 1
+  }
+}
+```
