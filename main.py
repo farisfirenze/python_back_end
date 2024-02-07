@@ -9,7 +9,7 @@ import json
 import time
 import pymysql
 import joblib
-from datetime import datetime
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 CORS(app)
@@ -46,6 +46,19 @@ combined = {
     "1": "Success",
     "0": "Failed"
 }
+
+def get_last_7_days_count(data):
+    data['datetime'] = pd.to_datetime(data['datetime'], dayfirst=True)
+    last_7_days = datetime.now() - timedelta(days=7)
+    last_7_days_data = data[data['datetime'] >= last_7_days]
+    print(last_7_days_data)
+    last_7_days_count = last_7_days_data['datetime'].dt.strftime('%a').value_counts().reindex(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']).to_dict()
+    print(last_7_days_count)
+    return last_7_days_count
+
+def get_predicted_status_count(data):
+    predicted_status_count = data['predicted_status_without_combine'].value_counts().to_dict()
+    return predicted_status_count
 
 @app.route('/get_predictions', methods=['POST'])
 def get_predictions():
@@ -194,6 +207,30 @@ def register_user():
     connection.close()
 
     return jsonify({'message': 'User registered successfully'})
+
+# Endpoint for getting user history
+@app.route('/get_graph_data', methods=['GET'])
+def get_graph_data():
+    connection = pymysql.connect(
+        host='sql11.freesqldatabase.com',
+        user='sql11679154',
+        password='MtH7ILFSeH',
+        database='sql11679154',
+        port=3306
+    )
+    # Retrieve user ID from request (you may use authentication for this)
+    sql_query = "SELECT * FROM predictions"
+    df = pd.read_sql(sql_query, connection)
+    line_graph = get_last_7_days_count(df)
+    bar_graph = get_predicted_status_count(df)
+    print(line_graph)
+    response = json.dumps({
+        "line_graph": line_graph,
+        "bar_graph": bar_graph
+    })
+
+
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
