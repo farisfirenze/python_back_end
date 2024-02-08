@@ -51,8 +51,12 @@ def get_last_7_days_count(data):
     data['datetime'] = pd.to_datetime(data['datetime'], dayfirst=True)
     last_7_days = datetime.now() - timedelta(days=7)
     last_7_days_data = data[data['datetime'] >= last_7_days]
-    print(last_7_days_data)
-    last_7_days_count = last_7_days_data['datetime'].dt.strftime('%a').value_counts().reindex(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']).to_dict()
+    days_of_week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    today_date = datetime.now()
+    today_day = today_date.strftime('%a')
+    today_index = days_of_week.index(today_day)
+    rearranged_days = days_of_week[today_index + 1:] + days_of_week[:today_index + 1]
+    last_7_days_count = last_7_days_data['datetime'].dt.strftime('%a').value_counts().reindex(rearranged_days).to_dict()
     print(last_7_days_count)
     return last_7_days_count
 
