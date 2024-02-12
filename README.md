@@ -1,5 +1,18 @@
 This is the backedn for Python Lab for Wise2024/24
 
+To run the app, follow the instructions
+Python version : 3.8
+
+1. cd into the directory and run
+```
+pip install -r requirements.txt
+```
+2. once installation done, run 
+```
+python main.py
+```
+3. You are all set.
+   
 Below are the endpoints in this FLASK application:
 
 1. get_predictions:
